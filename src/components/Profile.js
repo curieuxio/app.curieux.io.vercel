@@ -231,7 +231,7 @@ export default function Account({ session }) {
               <div className="link-input">
                 <p className="form-input-category">Username</p>
                 <div className="artist-card-socials-block">
-                  <a href={ArtistUsername} target="_blank" className="artist-card-socials-icons-a"><img className="artist-card-socials-icons" src={LinkIcon} alt="Link Logo" /></a>
+                  <a href={'https://' + ArtistUsername + '.curieux.io'} target="_blank" className="artist-card-socials-icons-a"><img className="artist-card-socials-icons" src={LinkIcon} alt="Link Logo" /></a>
                   <input className="profile-link-input"
                     type={'text'}
                     value={ArtistUsername || ''}

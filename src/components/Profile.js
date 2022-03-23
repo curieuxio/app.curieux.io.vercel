@@ -264,7 +264,7 @@ export default function Account({ session }) {
                     type={'text'}
                     value={SpotifyUrl || ''}
                     onChange={e => setSpotifyUrl(e.target.value)}
-                    placeholder={SpotifyUrl || 'https://open.spotify.com'}
+                    placeholder={SpotifyUrl || 'open.spotify.com'}
                     color={useColorModeValue('gray.800', 'gray.200')}
                     bg={useColorModeValue('gray.100', 'gray.600')}
                     rounded={'full'}
@@ -287,7 +287,7 @@ export default function Account({ session }) {
                     type={'text'}
                     value={DeezerUrl || ''}
                     onChange={e => setDeezerUrl(e.target.value)}
-                    placeholder={DeezerUrl || 'https://deezer.com'}
+                    placeholder={DeezerUrl || 'deezer.com'}
                     color={useColorModeValue('gray.800', 'gray.200')}
                     bg={useColorModeValue('gray.100', 'gray.600')}
                     rounded={'full'}
@@ -310,7 +310,7 @@ export default function Account({ session }) {
                     type={'text'}
                     value={AppleMusicUrl || ''}
                     onChange={e => setAppleMusicUrl(e.target.value)}
-                    placeholder={AppleMusicUrl || 'https://music.apple.com'}
+                    placeholder={AppleMusicUrl || 'music.apple.com'}
                     color={useColorModeValue('gray.800', 'gray.200')}
                     bg={useColorModeValue('gray.100', 'gray.600')}
                     rounded={'full'}
@@ -328,12 +328,12 @@ export default function Account({ session }) {
               <div className="link-input">
                 <p className="form-input-category">Web Site</p>
                 <div className="artist-card-socials-block">
-                  <a href={WebSiteUrl} target="_blank" className="artist-card-socials-icons-a"><img className="artist-card-socials-icons" src={LinkIcon} alt="Link Logo" /></a>
+                  <a href={'https://' + WebSiteUrl} target="_blank" className="artist-card-socials-icons-a"><img className="artist-card-socials-icons" src={LinkIcon} alt="Link Logo" /></a>
                   <input className="profile-link-input"
                     type={'text'}
                     value={WebSiteUrl || ''}
                     onChange={e => setWebSiteUrl(e.target.value)}
-                    placeholder={WebSiteUrl || 'https://artistwebsite.com'}
+                    placeholder={WebSiteUrl || 'artistwebsite.com'}
                     color={useColorModeValue('gray.800', 'gray.200')}
                     bg={useColorModeValue('gray.100', 'gray.600')}
                     rounded={'full'}

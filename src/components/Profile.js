@@ -259,7 +259,7 @@ export default function Account({ session }) {
               <div className="link-input">
                 <p className="form-input-category">Spotify</p>
                 <div className="artist-card-socials-block">
-                  <a href={SpotifyUrl} target="_blank" className="artist-card-socials-icons-a"><img className="artist-card-socials-icons" src={SpotifyIcon} alt="Spotify Logo" /></a>
+                  <a href={'https://' + SpotifyUrl} target="_blank" className="artist-card-socials-icons-a"><img className="artist-card-socials-icons" src={SpotifyIcon} alt="Spotify Logo" /></a>
                   <input className="profile-link-input"
                     type={'text'}
                     value={SpotifyUrl || ''}
@@ -282,7 +282,7 @@ export default function Account({ session }) {
               <div className="link-input">
                 <p className="form-input-category">Deezer</p>
                 <div className="artist-card-socials-block">
-                  <a href={DeezerUrl} target="_blank" className="artist-card-socials-icons-a"><img className="artist-card-socials-icons" src={DeezerIcon} alt="Deezer Logo" /></a>
+                  <a href={'https://' + DeezerUrl} target="_blank" className="artist-card-socials-icons-a"><img className="artist-card-socials-icons" src={DeezerIcon} alt="Deezer Logo" /></a>
                   <input className="profile-link-input"
                     type={'text'}
                     value={DeezerUrl || ''}
@@ -305,7 +305,7 @@ export default function Account({ session }) {
               <div className="link-input">
                 <p className="form-input-category">Apple Music</p>
                 <div className="artist-card-socials-block">
-                  <a href={AppleMusicUrl} target="_blank" className="artist-card-socials-icons-a"><img className="artist-card-socials-icons artist-card-socials-icons-apple" src={AppleMusicIcon} alt="Apple Music Logo" /></a>
+                  <a href={'https://' + AppleMusicUrl} target="_blank" className="artist-card-socials-icons-a"><img className="artist-card-socials-icons artist-card-socials-icons-apple" src={AppleMusicIcon} alt="Apple Music Logo" /></a>
                   <input className="profile-link-input"
                     type={'text'}
                     value={AppleMusicUrl || ''}

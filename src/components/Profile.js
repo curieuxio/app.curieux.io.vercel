@@ -236,7 +236,7 @@ export default function Account({ session }) {
                     type={'text'}
                     value={ArtistUsername || ''}
                     onChange={e => setArtistUsername(e.target.value)}
-                    placeholder={ArtistUsername || 'Username'}
+                    placeholder={ArtistUsername || 'username'}
                     color={useColorModeValue('gray.800', 'gray.200')}
                     bg={useColorModeValue('gray.100', 'gray.600')}
                     rounded={'full'}

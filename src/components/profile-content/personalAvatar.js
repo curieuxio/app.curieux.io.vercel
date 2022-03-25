@@ -150,6 +150,9 @@ export default function PersonalAvatar({ url, onUpload }) {
             type="file"
             id="single"
             accept="image/png, image/gif, image/jpeg, image/heic"
+            restrictions={{
+              maxFileSize: 4000,
+            }}
             onChange={uploadAvatar}
             disabled={uploading}
           />

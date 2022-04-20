@@ -68,7 +68,7 @@ export default function PersonalAvatar({ url, onUpload }) {
             alt="Avatar"
             pos={'relative'}
             borderRadius={'1.7rem 1.7rem 0 0'}
-            filter={'blur(3px)'}
+            filter={'blur(25px)'}
           />
         </div>
       </div>

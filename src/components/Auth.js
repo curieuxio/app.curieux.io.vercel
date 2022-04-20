@@ -15,20 +15,41 @@ import InstagramIcon from '../content/images/icons/social-icons/instagram-white-
 import TwitterIcon from '../content/images/icons/social-icons/twitter-white-icon.svg';
 import SpotifyIcon from '../content/images/icons/social-icons/spotify-white-icon.svg';
 
-export default async function Auth() {
+// Importing Icon Images SRC //
+import CloseBtn from '../content/images/icons/close.svg';
 
-    const { user, session, error } = await supabase.auth.signIn({
-        provider: 'spotify',
-      })
-    
-    async function signInWithSpotify() {
-        const { user, session, error } = await supabase.auth.signIn({
-          provider: 'spotify',
-        })
-      }
+export default function Auth() {
+    const [loading, setLoading] = useState(false);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const toast = useToast();
 
-    async function signout() {
-        const { error } = await supabase.auth.signOut()
+    const handleLogin = async email => {
+        try {
+            setLoading(true);
+            const { error } = await supabase.auth.signIn({ email });
+            if (error) throw error;
+            toast({
+                title: 'Success! 🤟',
+                position: 'top',
+                description: 'Check your email for the login link! It may arrive in your spams & promotions tabs!',
+                status: 'success',
+                duration: 5000,
+                isClosable: true
+            })
+        } catch (error) {
+            toast({
+                title: 'Error 😥',
+                position: 'top',
+                description: error.error_description || error.message,
+                status: 'success',
+                duration: 5000,
+                background: 'blue',
+                isClosable: true
+            });
+        } finally {
+            setLoading(false);
+        }
     }
 
     return (
@@ -60,10 +81,11 @@ export default async function Auth() {
                     <div className="home-box-subtitle-box">
                         <a className="home-box-subtitle">Your music smart link, 100% free!</a> {/* within 2 minutes! */}
                     </div>
-                    <form className="home-box-buttons-box"> {/*onSubmit={handleLogin}*/}
+                    <form className="home-box-buttons-box" onSubmit={handleLogin}>
                         <div className="home-box-left-signup-box signup-cta-home">
-                            {/*<input value={email} onChange={e => setEmail(e.target.value)} type="text" name="email" tabindex="-1" className="signin-up-input" required="required" placeholder="Enter your email"/>*/}
-                            <Button onClick={signInWithSpotify} style={{background: "#7b1df3", webkitAppearance: "none", flexWrap: "nowrap", fontWeight: "700", borderRadius: 22 + "px", padding: '30px', fontSize: 18.75 + "pt", width: 100+ "%", minWidth: "fit-content", display: "flex", alignItems: "center"}} className="home-box-button home-box-button-left link-white">Sign In with Spotify!</Button>
+                            <input value={email} onChange={e => setEmail(e.target.value)} type="text" name="email" tabindex="-1" className="signin-up-input" required="required" placeholder="Enter your email"/>
+                            {/*<input value={password} onChange={e => setPassword(e.target.value)} type="password" name="password" tabindex="-1" className="signin-up-input" required="required" placeholder="Password"/>*/}
+                            <Button onClick={e => {e.preventDefault(); handleLogin(email);}} isLoading={loading} loadingText="Sending link..." style={{background: "#7b1df3", webkitAppearance: "none", flexWrap: "nowrap", fontWeight: "700", borderRadius: 22 + "px", padding: '30px', fontSize: 18.75 + "pt", width: 100+ "%", minWidth: "fit-content", display: "flex", alignItems: "center"}} className="home-box-button home-box-button-left link-white"> {loading || 'Sign Up or Sign In!'}</Button>{/* Start now for free! */}
                         </div>
                     </form>
                 </div>
@@ -95,10 +117,10 @@ export default async function Auth() {
                 <div className="cta-section-box-left">
                     <p className="cta-section-box-title">Create & edit your page as you want!</p>
                     <p className="cta-section-box-subtitle">And share it to the world!</p>
-                    <form className="home-box-buttons-box-cta-section home-box-buttons-box-cta">{/*onSubmit={handleLogin}*/}
+                    <form className="home-box-buttons-box-cta-section home-box-buttons-box-cta" onSubmit={handleLogin}>
                         <div className="home-box-left-signup-box signup-cta-section">
-                            {/*<input value={email} onChange={e => setEmail(e.target.value)} type="text" name="email" tabindex="-1" className="signin-up-input-cta" required="required" placeholder="Enter your email"/>*/}
-                            <Button style={{background: "#7b1df3", webkitAppearance: "none", flexWrap: "nowrap", fontWeight: "700", borderRadius: 22 + "px", padding: '30px 30px', fontSize: 18.75 + "pt", width: 100+ "%", maxWidth: "fit-content", display: "flex", alignItems: "center"}} className="home-box-button-cta home-box-button-left link-white">Start now!</Button>
+                            <input value={email} onChange={e => setEmail(e.target.value)} type="text" name="email" tabindex="-1" className="signin-up-input-cta" required="required" placeholder="Enter your email"/>
+                            <Button onClick={e => {e.preventDefault(); handleLogin(email);}} isLoading={loading} loadingText="Signing up..." style={{background: "#7b1df3", webkitAppearance: "none", flexWrap: "nowrap", fontWeight: "700", borderRadius: 22 + "px", padding: '30px 30px', fontSize: 18.75 + "pt", width: 100+ "%", maxWidth: "fit-content", display: "flex", alignItems: "center"}} className="home-box-button-cta home-box-button-left link-white"> {loading || 'Start now!'}</Button>{/* Start now for free! */}
                         </div>
                     </form>
                 </div>
